@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { CarteleraResponse } from '../interfaces/cartelera-response';
+import { map, Observable, tap } from 'rxjs';
+import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,15 @@ public cargando: boolean = false;
         this.cargando = false;
       })
     );
+  }
+
+  buscarPeliculas(texto: string): Observable<Movie[]> {
+    const params = {...this.params, page: '1', query: texto}
+    return this.http.get<CarteleraResponse>(`${this.baseUrl}/search/movie`,{
+      params
+    }).pipe(
+      map(resp => resp.results)
+    )
   }
 
 }
