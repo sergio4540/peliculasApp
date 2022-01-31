@@ -22,6 +22,10 @@ public cargando: boolean = false;
     }
   }
 
+  resetCarteleraPage() {
+    this.carteleraPage =1;
+  }
+
   getCartelera():Observable<CarteleraResponse> {
     this.cargando = true;
     return this.http.get<CarteleraResponse>(`${this.baseUrl}/movie/now_playing`, {
