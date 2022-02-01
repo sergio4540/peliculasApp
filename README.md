@@ -1,4 +1,5 @@
 # PeliculasApp
+![image](https://user-images.githubusercontent.com/36976589/152048196-5b4fc744-6aa7-43eb-bafd-ac556c2605a9.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
